@@ -9,6 +9,7 @@ import java.util.List;
 public class Program2 {
     public static void main(String[] args) {
         DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+
         System.out.println("=== Test 1: Department findById ===");
         Department department = departmentDao.findById(4);
         System.out.println(department);
@@ -18,5 +19,11 @@ public class Program2 {
         for (Department dep: departments) {
             System.out.println(dep);
         }
+
+        System.out.println("\n=== Test 3: Department insert ===");
+        Department newDepartment = new Department(null, "Games");
+        departmentDao.insert(newDepartment);
+        System.out.println("Inserted! New id = " + newDepartment.getId());
+
     }
 }
